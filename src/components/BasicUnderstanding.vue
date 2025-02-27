@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-const msg = ref('Hello..')
+const msg = ref('Type here..')
 
 const link = ref('https://google.com')
 const newItemPrority = ref('low')
@@ -10,17 +10,22 @@ const color = ref([])
 <template>
   <div class="container">
     <div class="basic">
-      <h1 class="heading">{{ msg.toLocaleUpperCase() }}</h1>
-      <div class="input-container">
-        <input v-model="msg" />
-      </div>
-      <div class="link-container">
-        <a v-bind:href="link">link</a>
+      <label> Two way binding</label>
+      <div class="two-way">
+        <h1 class="heading">{{ msg.toLocaleUpperCase() }}</h1>
+        <div class="input-container">
+          <input v-model="msg" />
+        </div>
       </div>
 
+      <label> Link redirection</label>
+      <div class="link-redirection">
+        <div class="link-container">
+          <a v-bind:href="link">Click link</a>
+        </div>
+      </div>
       <div class="prority-container">
         <span class="label">Priority: </span>
-        Prority :
         <label>
           <input type="radio" v-model="newItemPrority" value="low" class="radio" />Low
         </label>
@@ -28,20 +33,18 @@ const color = ref([])
           <input type="radio" v-model="newItemPrority" value="high" class="radio" />High
         </label>
         <div class="priority-display">
-          {{ newItemPrority }}
-        </div>
-
-        <div class="color-container">
-          <label>
-            <input type="checkbox" value="green" v-model="color" class="checkbox" />Green
-          </label>
-          <label>
-            <input type="checkbox" value="pink" v-model="color" class="checkbox" />Pink
-          </label>
+          <strong v-if="newItemPrority === 'low'" class="low-priority">{{ newItemPrority }}</strong>
+          <strong v-else class="high-priority">{{ newItemPrority }}</strong>
         </div>
       </div>
-
+      <div class="color-container">
+        <label>
+          <input type="checkbox" value="green" v-model="color" class="checkbox" />Green
+        </label>
+        <label> <input type="checkbox" value="pink" v-model="color" class="checkbox" />Pink </label>
+      </div>
       {{ color }}
+
       <br />
     </div>
   </div>
@@ -55,6 +58,26 @@ const color = ref([])
   font-family: Arial, sans-serif;
   font-size: 30px;
 }
+.two-way {
+  border: 2px dotted black;
+  margin: 10px;
+}
+.link-redirection {
+  border: 2px dotted black;
+  margin: 10px;
+}
+.prority-container {
+  font-style: oblique;
+}
+.low-priority {
+  color: white;
+  background-color: green;
+}
+
+.high-priority {
+  color: white;
+  background-color: red;
+}
 /* Basic Styling for Heading */
 .heading {
   text-align: center;
@@ -64,6 +87,7 @@ const color = ref([])
 }
 
 .input-container {
+  border: groove;
   margin-bottom: 15px;
 }
 

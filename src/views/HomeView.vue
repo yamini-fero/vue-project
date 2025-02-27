@@ -1,8 +1,10 @@
 <script setup></script>
 
 <template>
+  <div class="center-text"></div>
+  <h1>Hey..</h1>
   <div class="center">
-    <h1>Home</h1>
+    <img src="../../public/demo.gif" />
   </div>
 </template>
 <style scoped>

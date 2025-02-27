@@ -5,6 +5,7 @@ import CounterButtonView from '../components/CounterButton.vue'
 import CoffeePlanView from '../views/CoffeePlanView.vue'
 import GithubCardView from '../views/GithubCardView.vue'
 import AppAlertView from '../views/AppAlertView.vue'
+import ShoppingListView from '../views/ShoppingListView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,11 @@ const router = createRouter({
       path: '/basic',
       name: 'basic',
       component: BasicUnderstandingView,
+    },
+    {
+      path: '/shopping-list',
+      name: 'shopping-list',
+      component: ShoppingListView,
     },
     {
       path: '/counter',

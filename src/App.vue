@@ -5,6 +5,7 @@
     <nav class="bg-gray-800 text-white p-4 fixed top-0 right-0 z-10">
       <div class="flex space-x-4">
         <router-link to="/basic" class="nav-link">Basic</router-link>
+        <router-link to="/shopping-list" class="nav-link">Shopping List</router-link>
         <router-link to="/app-alert" class="nav-link">Alert</router-link>
         <router-link to="/github-card" class="nav-link">Github Card</router-link>
         <router-link to="/coffee-plan" class="nav-link">Coffee Plan</router-link>
